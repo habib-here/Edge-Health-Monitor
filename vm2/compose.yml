@@ -1,0 +1,9 @@
+services:
+  consumer:
+    build: .
+    container_name: consumer-node-01
+    ports:
+      - "${LISTEN_PORT:-5000}:${LISTEN_PORT:-5000}"
+    volumes:
+      - ./data:/data:rw
+    restart: unless-stopped

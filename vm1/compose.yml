@@ -1,0 +1,7 @@
+services:
+  producer:
+    build: .
+    container_name: producer-node-01
+    volumes:
+      - ./data:/data:rw
+    restart: unless-stopped
