@@ -38,8 +38,14 @@ Enterprise monitoring stacks like **Datadog**, **Prometheus**, or **New Relic** 
 ---
 
 ## Architecture
-
 ```
+
+
+
+
+
+
+
 ┌──────────────────────────┐         TCP/5000          ┌──────────────────────────┐
 │   Producer Node (VM1)    │ ──────────────────────►   │   Consumer Node (VM2)    │
 │                          │                           │                          │
@@ -61,12 +67,23 @@ Enterprise monitoring stacks like **Datadog**, **Prometheus**, or **New Relic** 
                                                        │  Docker Container        │
                                                        │  (consumer-node-01)      │
                                                        └──────────────────────────┘
+
+
+
+
+
+
+
 ```
 
 **Key design decisions:**
 - **No service discovery** — producer pushes directly to a known IP (suitable for static, air-gapped topologies)
 - **No external libraries** — everything runs on `coreutils`, `procps`, `awk`, and `netcat`
 - **No cloud dependencies** — data never leaves your network
+
+### Sequence Diagram
+
+![Sequence Diagram](screenshots/Sequence%20Diagram.png)
 
 ---
 
